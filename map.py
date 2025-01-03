@@ -6,7 +6,7 @@ import os
 from scipy.ndimage import gaussian_filter, binary_dilation
 import random
 
-def get_google_maps_snapshot(lat, lng, api_key, zoom=18, size=(640, 640)):
+def get_google_maps_snapshot(lat, lng, api_key, zoom=15, size=(640, 640)):
     """
     Fetch a snapshot from the Google Maps Static API.
 
@@ -47,7 +47,7 @@ def get_google_maps_snapshot(lat, lng, api_key, zoom=18, size=(640, 640)):
     if response.status_code == 200:
         return Image.open(BytesIO(response.content))
     else:
-        raise Exception(f"Error: {response.status_code}, {response.text}")
+        raise Exception(f"Errors: {response.status_code}, {response.text}")
 
 def convert_to_minecraft_palette(image, max_distance=30):
     """
@@ -385,7 +385,7 @@ def generate_minecraft_map(lat, lng, api_key, output_dir="./"):
         print(f"Scaled image saved to: {scaled_image_path}")
     
         # Load and scale the outline map
-        outline_map = Image.open('./Map.jpg')
+        outline_map = Image.open('./Map.png')
     
         # Scale the outline map
         original_size = outline_map.size
@@ -436,10 +436,10 @@ if __name__ == "__main__":
     # Coordinates (latitude, longitude)
     # latitude = 42.145242  # Replace with your latitude 
     # longitude = -88.001543  # Replace with your longitude
-    latitude = 42  # Replace with your latitude
-    longitude = -88  # Replace with your longitude
+    latitude = 37.408327  # Replace with your latitude
+    longitude = -77.687022  # Replace with your longitude
     #42.250595, -88.050519
-    api_key = "ENTER_YOUR_GOOGLE_MAPS_API_KEY"  # Replace with your API key
+    api_key = "KEY"  # Replace with your API key
 
     final_image = generate_minecraft_map(latitude, longitude, api_key)
     if final_image:

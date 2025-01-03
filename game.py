@@ -10,7 +10,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pixelated Reveal Map with Movable Cursor")
 
 # Load and scale the map image
-map_image = pygame.image.load("./map.png")
+map_image = pygame.image.load("./original_map.png")
 map_image = pygame.transform.scale(map_image, (WIDTH, HEIGHT))
 
 # Create a fog surface to cover the entire map
@@ -18,7 +18,7 @@ fog = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
 fog.fill((210,180,140,255))  # Tan color
 
 # Reveal settings
-REVEAL_RADIUS = 40
+REVEAL_RADIUS = 80
 BLOCK_SIZE = 5  # Larger block size for more pixelated reveal
 
 # Updated cursor pattern
@@ -40,8 +40,8 @@ colors = {
 }
 
 # Draw the cursor pattern onto a surface
-cursor_width = len(cursor_pattern[0])
-cursor_height = len(cursor_pattern)
+cursor_width = len(cursor_pattern[0])/2
+cursor_height = len(cursor_pattern)/2
 
 cursor_surface = pygame.Surface((cursor_width*BLOCK_SIZE, cursor_height*BLOCK_SIZE), pygame.SRCALPHA)
 cursor_surface.fill((0,0,0,0))  # transparent background
