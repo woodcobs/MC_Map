@@ -436,8 +436,8 @@ if __name__ == "__main__":
     # Coordinates (latitude, longitude)
     # latitude = 42.145242  # Replace with your latitude 
     # longitude = -88.001543  # Replace with your longitude
-    latitude = 37.408327  # Replace with your latitude
-    longitude = -77.687022  # Replace with your longitude
+    latitude = 42.145242  # Replace with your latitude
+    longitude = -88.001543  # Replace with your longitude
     #42.250595, -88.050519
     api_key = "KEY"  # Replace with your API key
 
